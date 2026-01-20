@@ -1,240 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admission - Mumbai Institute of Technology</title>
+  <meta charset="UTF-8" />
+  <title>College Admission</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
-    /* Global Styles */
     body {
       margin: 0;
-      padding: 0;
-      font-family: 'Arial', sans-serif;
-      background-image: url('college.jpg');
-      background-size: cover;
-      background-attachment: fixed;
-      background-position: center;
-      color: #333;
-      overflow-x: hidden;
-    }
-
-    /* Navbar */
-    .navbar {
-      background: rgba(0, 0, 0, 0.7);
-      color: white;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+        url("college.jpg") no-repeat center center/cover;
+      min-height: 100vh;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 15px 20px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      justify-content: center;
     }
 
-    .navbar .logo {
-      font-size: 1.5em;
-      font-weight: bold;
-      text-transform: uppercase;
-      color: #ffbc47;
-      text-decoration: none;
+    .container {
+      background: #ffffff;
+      padding: 30px;
+      width: 100%;
+      max-width: 420px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
     }
 
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 15px;
-    }
-
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      padding: 8px 15px;
-      border-radius: 5px;
-      transition: background 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      background: #ffbc47;
-    }
-
-    .menu-icon {
-      font-size: 1.5em;
-      color: white;
-      cursor: pointer;
-      display: none;
-    }
-
-    /* Hero Section */
-    .admission {
-      background: rgba(255, 255, 255, 0.8);
-      padding: 50px 20px;
-      margin: 50px auto;
-      max-width: 800px;
+    h2 {
       text-align: center;
-      border-radius: 10px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
-
-    .admission h1 {
-      font-size: 2.5em;
       margin-bottom: 20px;
       color: #333;
     }
 
-    .admission p {
-      font-size: 1.2em;
-      margin-bottom: 30px;
-      color: #555;
-    }
-
-    /* Form Styles */
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    form label {
-      font-size: 1.1em;
+    label {
+      display: block;
+      margin-top: 10px;
       font-weight: bold;
-      color: #333;
     }
 
-    form input, form select {
-      padding: 10px;
-      font-size: 1em;
-      border: 1px solid #ccc;
-      border-radius: 5px;
+    input, select, button {
       width: 100%;
-      box-sizing: border-box;
+      padding: 10px;
+      margin-top: 5px;
+      font-size: 15px;
     }
 
-    form .btn {
-      padding: 12px 20px;
-      font-size: 1.1em;
-      background: #ffbc47;
+    button {
+      background-color: #007bff;
       color: white;
       border: none;
-      border-radius: 5px;
+      margin-top: 20px;
       cursor: pointer;
-      transition: background 0.3s ease;
+      border-radius: 4px;
     }
 
-    form .btn:hover {
-      background: #f5a623;
+    button:hover {
+      background-color: #0056b3;
     }
 
-    /* Footer */
-    footer {
-      background: #333;
-      color: white;
+    .message {
+      margin-top: 15px;
       text-align: center;
-      padding: 20px 0;
-      margin-top: 50px;
-    }
-
-    footer p {
-      margin: 0;
-      font-size: 1em;
-    }
-
-    /* Responsive Styles */
-    @media (max-width: 768px) {
-      .nav-links {
-        flex-direction: column;
-        display: none;
-      }
-
-      .menu-icon {
-        display: block;
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <!-- Navigation Bar -->
-  <nav class="navbar">
-    <a href="index.html" class="logo">Mumbai Institute of Technology</a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="courses.html">Courses</a></li>
-      <li><a href="Admission_page.html">Admission</a></li>
-      <li><a href="fees_page.html">Fees</a></li>
-      <li><a href="Contact_page.html">Contact</a></li>
-    </ul>
-    <span class="menu-icon" onclick="toggleMenu()">☰</span>
-  </nav>
 
-  <!-- Hero Section -->
-  <section class="admission">
-    <h1>Admission Open</h1>
-    <p>Apply now to kickstart your journey with us.</p>
-<form id="admissionForm">
-  <input type="text" id="name" placeholder="Name" required>
-  <input type="email" id="email" placeholder="Email" required>
+  <div class="container">
+    <h2>Admission Form</h2>
 
-  <select id="course">
-    <option>BSC Cs</option>
-    <option>BSc IT</option>
-    <option>BCA</option>
-  </select>
+    <form id="admissionForm">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" required />
 
-  <button type="submit" class="btn">Apply Now</button>
-</form>
+      <label for="email">Email Address</label>
+      <input type="email" id="email" required />
 
+      <label for="course">Select Course</label>
+      <select id="course" required>
+        <option value="">-- Select Course --</option>
+        <option value="BSc Computer Science">BSc Computer Science</option>
+        <option value="BSc IT">BSc IT</option>
+        <option value="BCA">BCA</option>
+        <option value="MCA">MCA</option>
+      </select>
 
-  </section>
+      <button type="submit">Submit Admission</button>
+    </form>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Mumbai Institute of Technology. All rights reserved.</p>
-  </footer>
+    <div class="message" id="responseMsg"></div>
+  </div>
 
   <script>
-    // Toggle Navbar Menu
-    function toggleMenu() {
-      const navLinks = document.getElementById('navLinks');
-      navLinks.classList.toggle('active');
-    }
+    document.getElementById("admissionForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
 
-    // Handle form submission
-    document.getElementById("admissionForm").addEventListener("submit", function (event) {
-      event.preventDefault(); // Prevent actual form submission
-      
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
       const course = document.getElementById("course").value;
 
-      alert(`Thank you, ${name}!\nYour application for the ${course} course has been received. We will contact you shortly at ${email}.`);
+      const responseMsg = document.getElementById("responseMsg");
+      responseMsg.textContent = "Submitting...";
+
+      try {
+        const res = await fetch("/.netlify/functions/submitAdmission", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ name, email, course })
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          responseMsg.style.color = "green";
+          responseMsg.textContent = data.message;
+          document.getElementById("admissionForm").reset();
+        } else {
+          responseMsg.style.color = "red";
+          responseMsg.textContent = data.error || "Something went wrong";
+        }
+      } catch (err) {
+        responseMsg.style.color = "red";
+        responseMsg.textContent = "Server error. Please try again.";
+      }
     });
   </script>
-<script>
-document.getElementById("admissionForm").addEventListener("submit", async function (e) {
-  e.preventDefault();
-
-  const data = {
-    name: document.getElementById("name").value,
-    email: document.getElementById("email").value,
-    course: document.getElementById("course").value
-  };
-
-  const response = await fetch("/.netlify/functions/submitAdmission", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(data)
-  });
-
-  const result = await response.json();
-  alert(result.message);
-});
-</script>
 
 </body>
 </html>
