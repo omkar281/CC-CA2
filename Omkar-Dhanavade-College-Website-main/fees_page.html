@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fees - Mumbai Institute of Technology</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-image: url('college.jpg');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      color: #333;
+    }
+
+    /* Header Section */
+    header {
+      background: linear-gradient(to right, #007BFF, #0056D2);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      font-weight: 600;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+    }
+
+    .navbar .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #ffbc47;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      background: #ffbc47;
+    }
+
+    .menu-icon {
+      font-size: 1.5em;
+      color: white;
+      cursor: pointer;
+      display: none;
+    }
+
+    /* Section Styles */
+    section {
+      background: rgba(255, 255, 255, 0.9);
+      margin: 40px auto;
+      padding: 30px 20px;
+      max-width: 1200px;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    section h2 {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #0056D2;
+    }
+
+    /* Table Styles */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+
+    table th, table td {
+      text-align: left;
+      padding: 15px;
+      border: 1px solid #ddd;
+    }
+
+    table th {
+      background: #0056D2;
+      color: white;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    table tr:nth-child(even) {
+      background: #f9f9f9;
+    }
+
+    table tr:hover {
+      background: #e0f7ff;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        display: none;
+      }
+
+      .menu-icon {
+        display: block;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      table th, table td {
+        font-size: 0.9em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>Fees Structure</h1>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">Mumbai Institute of Technology</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="Admission_page.html">Admission</a></li>
+      <li><a href="fees_page.html">Fees</a></li>
+      <li><a href="Contact_page.html">Contact</a></li>
+    </ul>
+    <span class="menu-icon" onclick="toggleMenu()">☰</span>
+  </nav>
+
+  <!-- Fees Section -->
+  <section>
+    <h2>Undergraduate Programs</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Program</th>
+          <th>Duration</th>
+          <th>Annual Fees (INR)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>BCA</td>
+          <td>3 Years</td>
+          <td>50,000</td>
+        </tr>
+        <tr>
+          <td>BSc IT</td>
+          <td>3 Years</td>
+          <td>60,000</td>
+        </tr>
+        <tr>
+          <td>BSc CA & IT</td>
+          <td>3 Years</td>
+          <td>65,000</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <script>
+    // Toggle Navbar Menu
+    function toggleMenu() {
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mumbai Institute of Technology</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;   
+      background-image: url('college.jpg');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+  }
+     
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #4a90e2; /* Vibrant blue */
+      color: white;
+      padding: 15px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      padding: 10px 15px;
+      border-radius: 20px;
+      transition: background 0.3s ease;
+    }
+
+    .nav-links li a:hover {
+      background: #357ab7; /* Darker blue on hover */
+    }
+
+    .menu-icon {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+      color: white;
+      background: rgba(0, 0, 0, 0.5); /* Transparent background layer over the image */
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .hero .btn {
+      text-decoration: none;
+      color: white;
+      background: #e94e77; /* Vibrant pink */
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border-radius: 30px;
+      transition: background 0.3s ease;
+    }
+
+    .hero .btn:hover {
+      background: #d93c68; /* Darker pink */
+    }
+
+    /* Footer Section */
+    footer {
+      text-align: center;
+      background: #333;
+      color: white;
+      padding: 20px 0;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #4a90e2;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        padding: 15px;
+        border-radius: 5px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .menu-icon {
+        display: block;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">Mumbai Institute of Technology</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="Admission_page.html">Admission</a></li>
+        <li><a href="fees_page.html">Fees</a></li>
+        <li><a href="Contact_page.html">Contact</a></li>
+      </ul>
+      <span class="menu-icon" onclick="toggleMenu()">☰</span>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Welcome to Mumbai Institute of Technology</h1>
+    <p>Where your dreams take flight with world-class education.</p>
+    <a href="Admission_page.html" class="btn">Get Started</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Mumbai Institute of Technology. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Toggle navigation menu for mobile view
+    function toggleMenu() {
+      const navLinks = document.getElementById("navLinks");
+      navLinks.classList.toggle("open");
+    }
+  </script>
+</body>
+</html>
