@@ -179,35 +179,47 @@
       <h2>Reach Out to Us</h2>
       <p>Email: contact@mumbaiinstituteoftechnology.edu | Phone: +91 9987891705</p>
     </div>
-    <form name="contact" method="POST" data-netlify="true">
-  <input type="hidden" name="form-name" value="contact">
-
-  <input type="text" name="name" placeholder="Your Name" required>
-  <input type="email" name="email" placeholder="Your Email" required>
-  <textarea name="message" placeholder="Your Message"></textarea>
-
+ <form id="contactForm">
+  <input type="text" id="name" placeholder="Your Name" required />
+  <input type="email" id="email" placeholder="Your Email" required />
+  <textarea id="message" placeholder="Your Message" required></textarea>
   <button type="submit">Send Message</button>
 </form>
 
-  </section>
+<p id="contactMsg"></p>
 
-  <script>
-    // Toggle Navbar Menu
-    function toggleMenu() {
-      const navLinks = document.getElementById('navLinks');
-      navLinks.classList.toggle('active');
-    }
+<script>
+document.getElementById("contactForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
 
-    // Handle form submission
-    document.getElementById('contactForm').addEventListener('submit', function (event) {
-      event.preventDefault(); // Prevent actual form submission
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const message = document.getElementById("message").value.trim();
 
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const message = document.getElementById('message').value;
+  const msg = document.getElementById("contactMsg");
+  msg.textContent = "Sending...";
 
-      alert(`Thank you, ${name}!\nWe have received your message: "${message}".\nWe will contact you shortly at ${email}.`);
+  try {
+    const res = await fetch("/.netlify/functions/submitContact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, message })
     });
-  </script>
-</body>
-</html>
+
+    const data = await res.json();
+
+    if (res.ok) {
+      msg.style.color = "green";
+      msg.textContent = data.message;
+      document.getElementById("contactForm").reset();
+    } else {
+      msg.style.color = "red";
+      msg.textContent = data.error || "Failed to send message";
+    }
+  } catch (err) {
+    msg.style.color = "red";
+    msg.textContent = "Server error";
+  }
+});
+</script>
+
