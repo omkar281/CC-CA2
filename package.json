@@ -1,0 +1,8 @@
+{
+  "name": "college-website",
+  "version": "1.0.0",
+  "description": "CC project with Netlify Functions and Neon database",
+  "dependencies": {
+    "pg": "^8.11.3"
+  }
+}
