@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Mumbai Institute of Technology</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-image: url('college.jpg');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      color: #333;
+    }
+
+    /* Header Section */
+    header {
+      background: linear-gradient(to right, #0056D2, #007BFF);
+      color: white;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      font-weight: 600;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+    }
+
+    .navbar .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #ffbc47;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      background: #ffbc47;
+    }
+
+    .menu-icon {
+      font-size: 1.5em;
+      color: white;
+      cursor: pointer;
+      display: none;
+    }
+
+    /* Section Styles */
+    section {
+      background: rgba(255, 255, 255, 0.95);
+      margin: 40px auto;
+      padding: 30px 20px;
+      max-width: 800px;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    section h2 {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #0056D2;
+    }
+
+    .contact-details {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .contact-details p {
+      font-size: 1.1em;
+      color: #555;
+    }
+
+    /* Form Styles */
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+
+    form button {
+      width: 100%;
+      padding: 12px;
+      background: #007BFF;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    form button:hover {
+      background: #0056D2;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        display: none;
+      }
+
+      .menu-icon {
+        display: block;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>Contact Us</h1>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">Mumbai Institute of Technology</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="Admission_page.html">Admission</a></li>
+      <li><a href="fees_page.html">Fees</a></li>
+      <li><a href="Contact_page.html">Contact</a></li>
+    </ul>
+    <span class="menu-icon" onclick="toggleMenu()">☰</span>
+  </nav>
+
+  <!-- Contact Section -->
+  <section>
+    <div class="contact-details">
+      <h2>Reach Out to Us</h2>
+      <p>Email: contact@mumbaiinstituteoftechnology.edu | Phone: +91 9987891705</p>
+    </div>
+    <form name="contact" method="POST" data-netlify="true">
+  <input type="hidden" name="form-name" value="contact">
+
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Your Email" required>
+  <textarea name="message" placeholder="Your Message"></textarea>
+
+  <button type="submit">Send Message</button>
+</form>
+
+  </section>
+
+  <script>
+    // Toggle Navbar Menu
+    function toggleMenu() {
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.toggle('active');
+    }
+
+    // Handle form submission
+    document.getElementById('contactForm').addEventListener('submit', function (event) {
+      event.preventDefault(); // Prevent actual form submission
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      alert(`Thank you, ${name}!\nWe have received your message: "${message}".\nWe will contact you shortly at ${email}.`);
+    });
+  </script>
+</body>
+</html>
