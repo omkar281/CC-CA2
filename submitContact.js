@@ -10,9 +10,9 @@ exports.handler = async (event) => {
     return { statusCode: 405, body: "Method Not Allowed" };
   }
 
-  const { name, email, message } = JSON.parse(event.body);
-
   try {
+    const { name, email, message } = JSON.parse(event.body);
+
     await pool.query(
       "INSERT INTO public.contacts(name, email, message) VALUES($1, $2, $3)",
       [name, email, message]
@@ -23,6 +23,7 @@ exports.handler = async (event) => {
       body: JSON.stringify({ message: "Message sent successfully" }),
     };
   } catch (err) {
+    console.error(err);
     return {
       statusCode: 500,
       body: JSON.stringify({ error: err.message }),
