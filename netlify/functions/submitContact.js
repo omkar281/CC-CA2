@@ -23,7 +23,7 @@ exports.handler = async (event) => {
       body: JSON.stringify({ message: "Message sent successfully" }),
     };
   } catch (err) {
-    console.error(err);
+    console.error("DB ERROR:", err);
     return {
       statusCode: 500,
       body: JSON.stringify({ error: err.message }),
